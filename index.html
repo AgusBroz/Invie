@@ -5,30 +5,33 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-sacle=1, user-scalable=no">
   </head>
   <body>
-    <!-- header -->
-    <header id="header" class="container header">
-      <!--logotipo-->
-      <figure>
-        <img src="images/invie.png" width="186" height="60" alt="Invie logotipo">
-      </figure>
-
-       <!-- menu -->
-      <nav class="menu">
-        <ul>
-          <li> <a href="index.html">Home</a> </li>
-          <li> <a href="#guitars">Guitars</a> </li>
-          <li> <a href="prices.html">Prices</a> </li>
-        </ul>
-      </nav>
-    </header>
-
      <!--portada-->
-    <section id="main" class="main">
+    <section id="main" class="main background">
+     
+      <!-- header -->
+      <header id="header" class="container header">
+        <!-- Burger icon-->
+        <i class="burger-btn icon-menu" id="burger"></i>
+        <!--logotipo-->
+        <figure class="logo">
+          <img src="images/invie.png" width="186" height="60" alt="Invie logotipo">
+        </figure>
+
+        <!-- menu -->
+        <nav class="menu" id="menu">
+          <ul>
+            <li> <a href="index.html">Home</a> </li>
+            <li> <a href="#guitars">Guitars</a> </li>
+            <li> <a href="prices.html">Prices</a> </li>
+          </ul>
+        </nav>
+      </header>
       <div class="container">
         <!-- titulo -->
-        <h1 class="title"><span style="font-style: oblique;">Invie</span>sibles guitars</h1>
+        <h1 class="title"><span style="font-style: oblique; color: rgba(255, 114, 80, 0.75);">Invie</span>sibles guitars</h1>
         <!-- resumen -->
         <h3 class="title-a"> Be the rockstar you always wanted to be</h3>
         <!-- boton -->
@@ -43,7 +46,7 @@
       <!-- guitarra 1 -->
       <article class="guitar">
         <img class="acoustic-img" src="images/invie-acustica.png" width="350" alt="Guitarra invie acustica">
-        <div class="first-guitar">
+                <div class="first-guitar">
           <h3 class="title-b">Invie Acustica</h3>
           <ol>
             <li>Vintage Style</li>
@@ -54,7 +57,6 @@
       </article>
       <!-- guitarra 2 -->
       <article class="guitar">
-        <img class="classic-img" src="images/invie-classic.png" width="400" alt="Guitarra invie classic">
         <div class="second-guitar">
           <h3 class="title-b">Invie Classic</h3>
           <ol>
@@ -63,8 +65,8 @@
             <li>Start your path as a rockstar</li>
           </ol>
         </div>
-      </article>
-    </section>
+        <img class="classic-img" src="images/invie-classic.png" width="400" alt="Guitarra invie classic">      </article>
+      </section>
     <footer class="footer">
       <div class="container">
         <div class="contact">
@@ -92,14 +94,17 @@
               </label>
             </div>
             <div class="interests">
-              <label for="quotation"> Quotation
+              <label for="quotation"> 
                 <input type="checkbox" id="quotation" value="quotation" name="interests">
+                Quotation
               </label>
-              <label for="complain">Complain
+              <label for="complain">
                 <input type="checkbox" id="complain" name="interests" value="complain">
+                Complain
               </label>
-              <label for="comentaries">Comentaries
+              <label for="comentaries">
                 <input type="checkbox" id="comentaries" name="interests" value="comentaries">
+                Comentaries
               </label>
             </div>
           </div>
@@ -112,5 +117,26 @@
         </form>
       </div>
     </footer>
+  <script>
+    var width = window.matchMedia('(max-width: 770px)');
+    width.addListener(mediaQuery);
+
+    burgerBtn=document.getElementById("burger");
+    menu=document.getElementById("menu");
+    function mediaQuery(){
+      if(width.matches){
+        burgerBtn.addEventListener("touchstart",toggleMenu);
+      }
+      else{
+        burgerBtn.removeEventListener("touchstart", toggleMenu);
+        menu.classList.remove("menu-active");
+        burgerBtn.classList.remove("icon-cancel-circle");
+      }
+    }   
+    function toggleMenu(event){
+      menu.classList.toggle("menu-active");
+      burgerBtn.classList.toggle("icon-cancel-circle");
+    }
+  </script>
   </body>
 </html>

@@ -1,10 +1,73 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?u4ej6d');
+  src:  url('../fonts/icomoon.eot?u4ej6d#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?u4ej6d') format('truetype'),
+    url('../fonts/icomoon.woff?u4ej6d') format('woff'),
+    url('../fonts/icomoon.svg?u4ej6d#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-phone:before {
+  content: "\e942";
+}
+.icon-envelop:before {
+  content: "\e945";
+}
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-cancel-circle:before {
+  content: "\ea0d";
+}
+.burger-btn{
+  display: none;
+  background-color: rgb(94, 96, 99);
+  width: 40px;
+  line-height: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+}
 body{
   font-family: 'Allerta', sans-serif;
   margin: 0;
 }
+input, textarea{
+  outline: 0;
+  padding: 5px;
+  border: 0;
+  font-family: 'Allerta',sans-serif;
+}
+input:focus, textarea:focus{
+  background-color: rgb(192, 192, 192);
+}
 .container{
-  width: 65%;
+  max-width: 65%;
   margin: auto;
+  position:  relative;
 }
 .guitar-container{
   width: 50%;
@@ -23,22 +86,40 @@ body{
   display: inline-block;
   margin-left: 15px;
 }
+.menu li:before{
+  content: '¤';
+  font-size: 1em;
+}
+.menu a{
+  color: white;
+  text-decoration: none;
+}
+.menu a:hover{
+  padding-bottom: 5px;
+  border-bottom: 2px solid white;
+  transition: all 0.15s;
+}
 figure{
   display: inline-block;
+  margin-left: 0;
 }
-.main{
+.background{
   background-image: url('../images/background.png');
+  background-size: cover;
   color: white;
 }
 .button{
   border-radius: 8px;
-  background:linear-gradient(to right,#ff7250,#fe344e);;
-  padding: 10px;
-  font-size: 1em;
+  background:linear-gradient(to right,rgb(255, 114, 80),#fe344e);;
+  padding: 10px 13px;
+  font-size: 18px;
   color: white;
   border: none;
+  cursor: pointer;
 }
-
+.main .button{
+  margin-bottom: 70px;
+}
 .title{
   font-size: 70px;
   margin: 0px 0 15px;
@@ -55,9 +136,6 @@ span{
   font-size: 50px;
   margin-bottom: 20px
 }
-button{
-  margin-bottom: 70px;
-}
 .guitars{
   color: #1f313c;
 }
@@ -70,29 +148,21 @@ button{
   font-family: 'Montserrat', sans-serif;
 }
 .guitar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
   border: 2px black solid;
   margin: auto;
   margin-bottom: 10px;
-  overflow: hidden;
   width: 67%;
   border-radius: 10px;
 }
 .guitar ol{
   padding: 0;
 }
-.acoustic-img{
-  float: right;
-  position:relative;
-  /* margin-right: 350px; */
-}
-.classic-img{
-  float:left;
-}
-.first-guitar{
-  padding-left: 20px;
-}
 .second-guitar{
-  margin-left: 460px;
+  padding-left: 20px;
 }
 .footer{
   background: rgb(37, 44, 83);
@@ -108,6 +178,7 @@ button{
 }
 .contact img{
   margin-bottom: 10px;
+  width: 186px;
 }
 .contact a{
   color: white;
@@ -125,7 +196,8 @@ button{
 .form{
   color: white;
   display: flex;
-  width: 460px;;
+  width: 460px;
+  padding: 25px;
 }
 .column-1{
   display: flex;
@@ -144,4 +216,176 @@ button{
 }
 textarea{
   max-lines: 40;
+}
+.first-guitar,.second-guitar{
+  width: 90%;
+}
+
+@media screen and (max-width: 1370px){
+  /* GUITARRAS */
+  .guitars.container{
+    width: 100%;
+  }
+  .title-b{
+    margin: 0;
+    font-size: 30px;
+  }
+  .guitar li{
+    list-style: none;
+  }
+  .guitar{
+    flex-direction: column;
+    text-align: center;
+  }
+  .guitar img{
+    width: 310px;
+  }
+  .second-guitar{
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 1010px){
+  .title{
+    font-size: 50px;
+  }
+  .title-a{
+    font-size: 20px;
+  }
+
+  /* FOOTER */
+  .footer .container{
+    flex-direction: column;
+  }
+  .contact{
+    margin-top: 1em;
+    align-items: center;
+  }
+  .form{
+    padding: 0;
+    margin-top: 2em;
+    margin: auto;
+  }
+  .column-1{
+    align-items: flex-start;
+  }
+  .interests label{
+    display: block;
+    padding: 3px;
+  }
+  .interests label input{
+    margin: 0;
+  }
+  textarea{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 840px){
+  .main{
+    text-align: center;
+  }
+  .menu{
+    position: static;
+  }
+  .menu a:hover{
+    padding: 0;
+    border: none;
+    color: rgb(255, 114, 80);
+  }
+  .menu ul{
+    margin: 0;
+    padding: 0;
+  }
+  .menu li{
+    display: block;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid white;
+  }
+  .menu li:first-child{
+    border-top: 1px solid white;
+  }
+  .menu li:before{
+    display: none;
+  }
+  .menu,
+  .logo{
+    display: block;
+    text-align: center;;
+  }
+  .logo{
+    margin: 0;
+  }
+  .logo img{
+    margin: 25px 0;
+  }
+}
+
+@media screen and (max-width: 800px){
+  /* MAIN */
+  .title{
+    font-size: 45px;
+    padding-top: 30px;
+  }
+  .title-a{
+    font-size: 18px;
+  }
+  .button{
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 770px){
+  .burger-btn{
+    display: inline-block;
+  }
+  .footer .container{
+    display: block;
+  }
+  .form{
+    display: block;
+    margin: auto;
+    width: 300px;
+  }
+  .text-box{
+    width: 100%;
+  }
+  .text-box input{
+    display: block;
+    width: 100%;
+  }
+  .column-1{
+    align-items:flex-start ;
+    margin: 0;
+  }
+  textarea{
+    width: 100%;
+  }
+  .interests label{
+    display: block;
+    padding: 3px;
+  }
+  .interests label input{
+    margin: 0;
+  }
+  .header{
+    position: static;
+  }
+  .menu{
+    background-color: rgba(254, 52, 79,.85);
+    position: absolute;
+    width: 100%;
+    top:0;
+    left: -100%;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    transition: .5s;
+  }
+  .menu-active{
+    left: 0;
+  }
+  .menu ul{
+    flex: 1;
+  }
 }
