@@ -46,7 +46,7 @@
       <!-- guitarra 1 -->
       <article class="guitar">
         <img class="acoustic-img" src="images/invie-acustica.png" width="350" alt="Guitarra invie acustica">
-                <div class="first-guitar">
+        <div class="first-guitar">
           <h3 class="title-b">Invie Acustica</h3>
           <ol>
             <li>Vintage Style</li>
@@ -65,12 +65,12 @@
             <li>Start your path as a rockstar</li>
           </ol>
         </div>
-        <img class="classic-img" src="images/invie-classic.png" width="400" alt="Guitarra invie classic">      </article>
+        <img class="classic-img" data-src="images/invie-classic.png" width="400" alt="Guitarra invie classic">      </article>
       </section>
     <footer class="footer">
       <div class="container">
         <div class="contact">
-          <img src="images/invie.png" alt="logo-invie">
+          <img data-src="images/invie.png" alt="logo-invie">
           <div class="addresses">
             <a href="tel: +541141794671"> <strong>Tel</strong>1541794671</a>
             <a href="mailto: xxx@gmail.com"> <strong>e-mail</strong> xxx@gmail.com</a>
@@ -117,6 +117,7 @@
         </form>
       </div>
     </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js" integrity="sha512-Yrd3VqXNBUzyCQWVBlL65mTdE1snypc9E3XnGJba0zJmxweyJAqDNp6XSARxxAO6hWdwMpKQOIGE5uvGdG0+Yw==" crossorigin="anonymous"></script>
   <script>
     var width = window.matchMedia('(max-width: 770px)');
     width.addListener(mediaQuery);
@@ -137,6 +138,9 @@
       menu.classList.toggle("menu-active");
       burgerBtn.classList.toggle("icon-cancel-circle");
     }
+    var blazy = new Blazy({
+      selector:'img'
+    });
   </script>
   </body>
 </html>
