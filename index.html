@@ -38,9 +38,14 @@
         <button type="button" name="button" class="button">Know more</button>
       </div>
     </section>
-
     <!-- guitarras -->
     <section id="guitars" class="guitars container">
+      <div class="video-container" id="video-container">
+        <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/2dfay31EHTA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-btn" id="video-btn">
+        <button class="button">Ver Video</button>
+      </div>
       <!-- titulo -->
       <h2>Our Guitars</h2>
       <!-- guitarra 1 -->
@@ -120,24 +125,37 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js" integrity="sha512-Yrd3VqXNBUzyCQWVBlL65mTdE1snypc9E3XnGJba0zJmxweyJAqDNp6XSARxxAO6hWdwMpKQOIGE5uvGdG0+Yw==" crossorigin="anonymous"></script>
   <script>
     var width = window.matchMedia('(max-width: 770px)');
-    width.addListener(mediaQuery);
 
+    videoBtn = document.getElementById("video-btn");
+    videoContainer = document.getElementById("video-container");
     burgerBtn=document.getElementById("burger");
     menu=document.getElementById("menu");
+
+    width.addListener(mediaQuery);
+
+  
     function mediaQuery(){
       if(width.matches){
         burgerBtn.addEventListener("touchstart",toggleMenu);
+        videoContainer.classList.add("video-active");
+        videoBtn.removeEventListener("click", toggleVideo);
       }
       else{
         burgerBtn.removeEventListener("touchstart", toggleMenu);
         menu.classList.remove("menu-active");
         burgerBtn.classList.remove("icon-cancel-circle");
+        videoBtn.addEventListener("click", toggleVideo);
       }
     }   
     function toggleMenu(event){
       menu.classList.toggle("menu-active");
       burgerBtn.classList.toggle("icon-cancel-circle");
     }
+    function toggleVideo(event){
+      videoContainer.classList.toggle("video-active");
+    }
+
+    mediaQuery();
     var blazy = new Blazy({
       selector:'img'
     });
