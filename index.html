@@ -5,12 +5,14 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta&family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-sacle=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
-     <!--portada-->
+    <!-- Swipe area-->
+    <div id="swipe-area" style="position: fixed; width: 50px; background-color: transparent; z-index: 3;top: 0; bottom: 0;"></div>
+    
+    <!--portada-->
     <section id="main" class="main background">
-     
       <!-- header -->
       <header id="header" class="container header">
         <!-- Burger icon-->
@@ -40,11 +42,13 @@
     </section>
     <!-- guitarras -->
     <section id="guitars" class="guitars container">
-      <div class="video-container" id="video-container">
-        <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/2dfay31EHTA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-width">
+        <div class="video-container" id="video-container">
+          <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/2dfay31EHTA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
       <div class="video-btn" id="video-btn">
-        <button class="button">Ver Video</button>
+        <button class="button">Watch Video</button>
       </div>
       <!-- titulo -->
       <h2>Our Guitars</h2>
@@ -123,42 +127,7 @@
       </div>
     </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js" integrity="sha512-Yrd3VqXNBUzyCQWVBlL65mTdE1snypc9E3XnGJba0zJmxweyJAqDNp6XSARxxAO6hWdwMpKQOIGE5uvGdG0+Yw==" crossorigin="anonymous"></script>
-  <script>
-    var width = window.matchMedia('(max-width: 770px)');
-
-    videoBtn = document.getElementById("video-btn");
-    videoContainer = document.getElementById("video-container");
-    burgerBtn=document.getElementById("burger");
-    menu=document.getElementById("menu");
-
-    width.addListener(mediaQuery);
-
-  
-    function mediaQuery(){
-      if(width.matches){
-        burgerBtn.addEventListener("touchstart",toggleMenu);
-        videoContainer.classList.add("video-active");
-        videoBtn.removeEventListener("click", toggleVideo);
-      }
-      else{
-        burgerBtn.removeEventListener("touchstart", toggleMenu);
-        menu.classList.remove("menu-active");
-        burgerBtn.classList.remove("icon-cancel-circle");
-        videoBtn.addEventListener("click", toggleVideo);
-      }
-    }   
-    function toggleMenu(event){
-      menu.classList.toggle("menu-active");
-      burgerBtn.classList.toggle("icon-cancel-circle");
-    }
-    function toggleVideo(event){
-      videoContainer.classList.toggle("video-active");
-    }
-
-    mediaQuery();
-    var blazy = new Blazy({
-      selector:'img'
-    });
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
   </body>
 </html>

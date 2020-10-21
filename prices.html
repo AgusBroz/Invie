@@ -5,11 +5,15 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/prices.css">
+    <meta name="viewport" content="width= device-width, initial-scale=1, user-scalable= no">
     <link href="https://fonts.googleapis.com/css2?family=Allerta&family=Montserrat:wght@600&display=swap" rel="stylesheet">
   </head>
   <body>
+      <!-- Swipe area-->
+      <div id="swipe-area" style="position: fixed; width: 50px; background-color: transparent; z-index: 3;top: 0; bottom: 0;"></div>
       <!-- header -->
       <header id="header" class="header background">
+        <i class="burger-btn icon-menu" id="burger"></i>
         <div class="container">
           <!--logotipo-->
           <figure>
@@ -17,7 +21,7 @@
           </figure>
 
           <!-- menu -->
-          <nav class="menu">
+          <nav class="menu" id="menu">
             <ul>
               <li> <a href="index.html">Home</a> </li>
               <li> <a href="index.html#guitars">Guitars</a> </li>
@@ -25,36 +29,49 @@
             </ul>
           </nav>
         </div>
-       
       </header>
-    <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Modelo</th>
-                    <th>Precio</th>
-                    <th>Descripcion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> Invie Classic</td>
-                    <td> $100.000</td>
-                    <td> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, asperiores!</td>
-                </tr>
-                <tr>
-                    <td> Invie Acoustic</td>
-                    <td> $100.000</td>
-                    <td> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, asperiores!</td>
-                </tr>
-                <tr>
-                    <td> Invie Custom</td>
-                    <td> $100.000</td>
-                    <td> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, asperiores!</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+      <section class="table">
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Precio</th>
+                        <th>Descripcion</th>
+                        <th>Modelo</th>
+                        <th>Precio</th>
+                        <th>Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Invie Classic</td>
+                        <td> $100.000</td>
+                        <td> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, asperiores!</td>
+                        <td> Invie Classic</td>
+                        <td> $100.000</td>
+                        <td> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, asperiores!</td>
+                    </tr>
+                    <tr>
+                        <td> Invie Acoustic</td>
+                        <td> $100.000</td>
+                        <td> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, asperiores!</td>
+                        <td> Invie Acoustic</td>
+                        <td> $100.000</td>
+                        <td> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, asperiores!</td>
+                    </tr>
+                    <tr>
+                        <td> Invie Custom</td>
+                        <td> $100.000</td>
+                        <td> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, asperiores!</td>
+                        <td> Invie Custom</td>
+                        <td> $100.000</td>
+                        <td> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, asperiores!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
     <footer class="footer">
         <div class="container">
           <div class="contact">
@@ -102,3 +119,55 @@
           </form>
         </div>
       </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js" integrity="sha512-Yrd3VqXNBUzyCQWVBlL65mTdE1snypc9E3XnGJba0zJmxweyJAqDNp6XSARxxAO6hWdwMpKQOIGE5uvGdG0+Yw==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous"></script>
+      <script>
+        var width = window.matchMedia('(max-width: 770px)');
+burgerBtn=document.getElementById("burger");
+menu=document.getElementById("menu");
+body = document.body
+swipeArea = document.getElementById("swipe-area");
+
+width.addListener(mediaQuery);
+
+function mediaQuery(){
+    if(width.matches){
+    burgerBtn.addEventListener("touchstart",toggleMenu);
+    }
+    else{
+    burgerBtn.removeEventListener("touchstart", toggleMenu);
+    menu.classList.remove("menu-active");
+    burgerBtn.classList.remove("icon-cancel-circle");
+    }
+}   
+function toggleMenu(event){
+    menu.classList.toggle("menu-active");
+    body.classList.toggle("body-scroll");
+    burgerBtn.classList.toggle("icon-cancel-circle");
+}
+function showMenu(){
+    menu.classList.add("menu-active");
+    body.classList.add("body-scroll");
+    burgerBtn.classList.add("icon-cancel-circle");
+}
+function hideMenu(){
+    menu.classList.remove("menu-active");
+    body.classList.remove("body-scroll");
+    burgerBtn.classList.remove("icon-cancel-circle");
+}
+
+mediaQuery();
+var blazy = new Blazy({
+    selector:'img'
+});
+
+//console.log(window.devicePixelRatio);
+
+/* Gestures */
+var gestures = new Hammer(swipeArea);
+var bodyGestures = new Hammer(body);
+gestures.on("swiperight", showMenu);
+bodyGestures.on("swipeleft", hideMenu);
+      </script>
+  </body>
+</html>

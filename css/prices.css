@@ -1,3 +1,10 @@
+.header{
+    height:auto;
+}
+.table{
+    padding: 10px 0;
+    height: 70vh;
+}
 table{
     width: 100%;
     border-collapse: collapse;
@@ -13,5 +20,8 @@ th{
 td{
     text-align: center;
     padding: 10px;
+}
+.footer{
+   height:auto;
 }
 
