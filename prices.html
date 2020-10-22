@@ -8,7 +8,7 @@
     <meta name="viewport" content="width= device-width, initial-scale=1, user-scalable= no">
     <link href="https://fonts.googleapis.com/css2?family=Allerta&family=Montserrat:wght@600&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="prices">
       <!-- Swipe area-->
       <div id="swipe-area" style="position: fixed; width: 50px; background-color: transparent; z-index: 3;top: 0; bottom: 0;"></div>
       <!-- header -->
@@ -123,51 +123,51 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous"></script>
       <script>
         var width = window.matchMedia('(max-width: 770px)');
-burgerBtn=document.getElementById("burger");
-menu=document.getElementById("menu");
-body = document.body
-swipeArea = document.getElementById("swipe-area");
+        burgerBtn=document.getElementById("burger");
+        menu=document.getElementById("menu");
+        body = document.body
+        swipeArea = document.getElementById("swipe-area");
 
-width.addListener(mediaQuery);
+        width.addListener(mediaQuery);
 
-function mediaQuery(){
-    if(width.matches){
-    burgerBtn.addEventListener("touchstart",toggleMenu);
-    }
-    else{
-    burgerBtn.removeEventListener("touchstart", toggleMenu);
-    menu.classList.remove("menu-active");
-    burgerBtn.classList.remove("icon-cancel-circle");
-    }
-}   
-function toggleMenu(event){
-    menu.classList.toggle("menu-active");
-    body.classList.toggle("body-scroll");
-    burgerBtn.classList.toggle("icon-cancel-circle");
-}
-function showMenu(){
-    menu.classList.add("menu-active");
-    body.classList.add("body-scroll");
-    burgerBtn.classList.add("icon-cancel-circle");
-}
-function hideMenu(){
-    menu.classList.remove("menu-active");
-    body.classList.remove("body-scroll");
-    burgerBtn.classList.remove("icon-cancel-circle");
-}
+        function mediaQuery(){
+            if(width.matches){
+            burgerBtn.addEventListener("touchstart",toggleMenu);
+            }
+            else{
+            burgerBtn.removeEventListener("touchstart", toggleMenu);
+            menu.classList.remove("menu-active");
+            burgerBtn.classList.remove("icon-cancel-circle");
+            }
+        }   
+        function toggleMenu(event){
+            menu.classList.toggle("menu-active");
+            body.classList.toggle("body-scroll");
+            burgerBtn.classList.toggle("icon-cancel-circle");
+        }
+        function showMenu(){
+            menu.classList.add("menu-active");
+            body.classList.add("body-scroll");
+            burgerBtn.classList.add("icon-cancel-circle");
+        }
+        function hideMenu(){
+            menu.classList.remove("menu-active");
+            body.classList.remove("body-scroll");
+            burgerBtn.classList.remove("icon-cancel-circle");
+        }
 
-mediaQuery();
-var blazy = new Blazy({
-    selector:'img'
-});
+        mediaQuery();
+        var blazy = new Blazy({
+            selector:'img'
+        });
 
-//console.log(window.devicePixelRatio);
+        //console.log(window.devicePixelRatio);
 
-/* Gestures */
-var gestures = new Hammer(swipeArea);
-var bodyGestures = new Hammer(body);
-gestures.on("swiperight", showMenu);
-bodyGestures.on("swipeleft", hideMenu);
+        /* Gestures */
+        var gestures = new Hammer(swipeArea);
+        var bodyGestures = new Hammer(body);
+        gestures.on("swiperight", showMenu);
+        bodyGestures.on("swipeleft", hideMenu);
       </script>
   </body>
 </html>

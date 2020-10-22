@@ -251,6 +251,27 @@ textarea{
 .first-guitar,.second-guitar{
   width: 90%;
 }
+.table{
+  padding: 10px 0;
+  height: 70vh;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+td,th{
+  border: 1px solid rgb(37, 44, 83);
+}
+th{
+  background: rgb(37, 44, 83);
+  color: white;
+  padding: 10px;
+}
+td{
+  text-align: center;
+  padding: 10px;
+}
+
 
 @media screen and (max-width: 1370px){
   /* GUITARRAS */
@@ -349,6 +370,12 @@ textarea{
   }
   .logo img{
     margin: 25px 0;
+  }
+  .prices .header .container{
+    text-align: center;
+  }
+  .prices .header .container figure{
+    margin: inherit 0;
   }
 }
 
