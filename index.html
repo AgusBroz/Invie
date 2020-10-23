@@ -43,11 +43,11 @@
     </section>
     <!-- guitarras -->
     <section id="guitars" class="guitars container">
-      <div class="video-width">
+      <!-- <div class="video-width">
         <div class="video-container" id="video-container">
-        <!--   <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/2dfay31EHTA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+         <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/2dfay31EHTA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-      </div>
+      </div> -->
       <div class="video-btn" id="video-btn">
         <button class="button">Watch Video</button>
       </div>
@@ -133,8 +133,8 @@
   <script>
     var width = window.matchMedia('(max-width: 770px)');
 
-    videoBtn = document.getElementById("video-btn");
-    videoContainer = document.getElementById("video-container");
+    /* videoBtn = document.getElementById("video-btn");
+    videoContainer = document.getElementById("video-container"); */
     burgerBtn=document.getElementById("burger");
     menu=document.getElementById("menu");
     body = document.body
@@ -144,15 +144,15 @@
 
     function mediaQuery(){
         if(width.matches){
-        burgerBtn.addEventListener("touchstart",toggleMenu);
-        videoContainer.classList.add("video-active");
-        videoBtn.removeEventListener("click", toggleVideo);
+        burgerBtn.addEventListener("touchstart",toggleMenu, {passive: true});
+       /*  videoContainer.classList.add("video-active");
+        videoBtn.removeEventListener("click", toggleVideo); */
         }
         else{
         burgerBtn.removeEventListener("touchstart", toggleMenu);
         menu.classList.remove("menu-active");
         burgerBtn.classList.remove("icon-cancel-circle");
-        videoBtn.addEventListener("click", toggleVideo);
+        /* videoBtn.addEventListener("click", toggleVideo); */
         }
     }   
     function toggleMenu(event){
@@ -171,7 +171,7 @@
         burgerBtn.classList.remove("icon-cancel-circle");
     }
     function toggleVideo(event){
-        videoContainer.classList.toggle("video-active");
+       /*  videoContainer.classList.toggle("video-active"); */
     }
 
     mediaQuery();

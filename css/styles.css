@@ -12,9 +12,9 @@
 .body-scroll{
   overflow: hidden;
 }
-.video-btn{
+/* .video-btn{
   text-align: center;
-}
+} 
 .video-width{
   margin: 0 auto;
   max-width: 600px;
@@ -40,7 +40,7 @@ iframe{
   bottom: 0;
   right: 0;
   left: 0;
-}
+}*/
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -418,9 +418,9 @@ td{
   .header .container{
     position: static;
   }
-  .video-btn{
+ /*  .video-btn{
     display: none;
-  }
+  } */
   .burger-btn{
     display: inline-block;
   }
